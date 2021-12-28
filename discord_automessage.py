@@ -27,7 +27,7 @@ loginResponse = requests.request("POST", url+"/api/v9/auth/login", json = payloa
 
 
 print(loginResponse.text)
-daToken = eval(loginResponse.text)["token"]
+daToken = "MzMzMDcwNDU3Mjc4NTYyMzA2.Ycqf9A.ZYycxLUlwaQB4pyizd8UotvI2xU"
 #LOGIN IS DONE AT THIS POINT#
 
 def createNonce():
