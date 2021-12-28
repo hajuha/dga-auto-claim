@@ -3,20 +3,19 @@ import schedule
 import time
 
 def dga_claim():
-    discord_automessage.sendMessage(888653476169666571,"dga!claim")
+    discord_automessage.sendMessage(888653476169666571, "dga!claim", log=False)
+    print("Auto claimed at ", time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime()))
 def dga_daily():
     discord_automessage.sendMessage(888653476169666571,"dga!daily")
+    print("Auto daily at ", time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime()))
+    
+def dga_spam():
+    discord_automessage.sendMessage(888653476169666571,"dga!11")
 
-schedule.every().hour.do(dga_claim)
-schedule.every().day.at("21:30").do(dga_daily)
-discord_automessage.sendMessage(888653476169666571,"This is a test message for @Yuhakez#0641 ")
-discord_automessage.sendMessage(888653476169666571,"Auto claim start in")
-time.sleep(1)
-discord_automessage.sendMessage(888653476169666571,"3")
-time.sleep(1)
-discord_automessage.sendMessage(888653476169666571,"2")
-time.sleep(1)
-discord_automessage.sendMessage(888653476169666571,"1")
+schedule.every(61).minutes.do(dga_claim)
+schedule.every(1441).minutes.do(dga_daily)
+discord_automessage.sendMessage(888653476169666571, "Test", log=False)
+
 while 1:    
     schedule.run_pending()
     time.sleep(1)

@@ -9,9 +9,7 @@ from requests.api import request
 from config import getCreds
 #LOGIN#
 url = "https://discord.com"
-username,password = getCreds()
-payload = {"login":username,
-"password":password}
+daToken = getCreds()
 
 
 session = requests.Session()
@@ -22,12 +20,6 @@ headers = {
     'cookie': daDiscordCookies["__dcfduid"],
     'Content-Type': "application/json"
     }
-
-loginResponse = requests.request("POST", url+"/api/v9/auth/login", json = payload, headers = headers)
-
-
-print(loginResponse.text)
-daToken = "MzMzMDcwNDU3Mjc4NTYyMzA2.Ycqf9A.ZYycxLUlwaQB4pyizd8UotvI2xU"
 #LOGIN IS DONE AT THIS POINT#
 
 def createNonce():
