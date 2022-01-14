@@ -49,7 +49,23 @@ def sendMessage(daChannelID, daMessage, log = True):
     if log == True:
         print("Payload:"+str(payload))
     requests.request("POST", url+"/api/v9/channels/"+str(daChannelID)+"/messages", json = payload, headers = headers)
+    
     time.sleep(.25)
+
+def changeNickName(daServerID, daNickname, log = True):
+    headers = {
+    'cookie': daDiscordCookies["__dcfduid"],
+    'authorization': daToken,
+    'Content-Type': "application/json"
+    }
+    
+    payload ={"nick": daNickname}
+    
+    if log == True:
+        print("Payload:"+str(payload))
+    requests.request("PATCH", url+"/api/v9/guilds/"+str(daServerID)+"/members/%40me/nick", json = payload, headers = headers)
+    time.sleep(.25)
+
 def channelInfo(daChannelID):
     print(url+"/channels/"+str(daChannelID))
     daChannelInfo = requests.request("GET", url+"/channels/"+str(daChannelID))
