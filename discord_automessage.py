@@ -35,10 +35,10 @@ def sendFile(daChannelID, pathToFile):
     files = {"media":open(pathToFile,'rb')}
     requests.request("POST", url+"/api/v9/channels/"+str(daChannelID)+"/messages", files = files, headers = headers, )
 
-def sendMessage(daChannelID, daMessage, log = True):
+def sendMessage(daChannelID, daMessage, daTokenn, log = True):
     headers = {
     'cookie': daDiscordCookies["__dcfduid"],
-    'authorization': daToken,
+    'authorization': daTokenn,
     'Content-Type': "application/json"
     }
 
